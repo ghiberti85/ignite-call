@@ -17,7 +17,7 @@ export function Calendar() {
     <CalendarContainer>
       <CalendarHeader>
         <CalendarTitle>
-          Abril <span>2024</span>
+          Março <span>2024</span>
         </CalendarTitle>
 
         <CalendarActions>
@@ -48,33 +48,33 @@ export function Calendar() {
               <CalendarDay>1</CalendarDay>
             </td>
             <td>
-              <CalendarDay disabled>2</CalendarDay>
+              <CalendarDay>2</CalendarDay>
             </td>
             <td>
-              <CalendarDay>3</CalendarDay>
+              <CalendarDay disabled>3</CalendarDay>
             </td>
           </tr>
           <tr>
             <td>
-              <CalendarDay>1</CalendarDay>
+              <CalendarDay disabled>4</CalendarDay>
             </td>
             <td>
-              <CalendarDay>1</CalendarDay>
+              <CalendarDay>5</CalendarDay>
             </td>
             <td>
-              <CalendarDay>1</CalendarDay>
+              <CalendarDay>6</CalendarDay>
             </td>
             <td>
-              <CalendarDay>1</CalendarDay>
+              <CalendarDay>7</CalendarDay>
             </td>
             <td>
-              <CalendarDay>1</CalendarDay>
+              <CalendarDay>8</CalendarDay>
             </td>
             <td>
-              <CalendarDay disabled>2</CalendarDay>
+              <CalendarDay>9</CalendarDay>
             </td>
             <td>
-              <CalendarDay>3</CalendarDay>
+              <CalendarDay disabled>10</CalendarDay>
             </td>
           </tr>
         </tbody>
