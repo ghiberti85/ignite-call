@@ -13,7 +13,14 @@ export const CalendarHeader = styled('div', {
   justifyContent: 'space-between',
 })
 
-export const CalendarTitle = styled(Text, { fontWeight: '$medium' })
+export const CalendarTitle = styled(Text, {
+  fontWeight: '$medium',
+  textTransform: 'capitalize',
+
+  span: {
+    color: '$gray200',
+  },
+})
 
 export const CalendarActions = styled('div', {
   display: 'flex',
