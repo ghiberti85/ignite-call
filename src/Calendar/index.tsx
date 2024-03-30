@@ -61,19 +61,23 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
 
   const username = String(router.query.username)
 
-  const { data: blockedDates } = useQuery<BlockedDates>(
-    ['blocked-dates', currentDate.get('year'), currentDate.get('month')],
-    async () => {
-      const response = await api.get(`/users/${username}/blocked-dates`, {
+  const { data: blockedDates } = useQuery<BlockedDates>({
+    queryKey: [
+      'blocked-dates',
+      currentDate.get('year'),
+      currentDate.get('month'),
+    ],
+    queryFn: async () => {
+      const response = await api.get(`/user/${username}/blocked-dates`, {
         params: {
           year: currentDate.get('year'),
-          month: currentDate.get('month') + 1,
+          month: currentDate.get('month'),
         },
       })
 
       return response.data
     },
-  )
+  })
 
   const calendarWeeks = useMemo(() => {
     if (!blockedDates) {
