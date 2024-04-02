@@ -35,6 +35,7 @@ interface CalendarProps {
   onDateSelected: (date: Date) => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(() => {
     return dayjs().set('date', 1)
@@ -68,10 +69,10 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
       currentDate.get('month'),
     ],
     queryFn: async () => {
-      const response = await api.get(`/user/${username}/blocked-dates`, {
+      const response = await api.get(`/users/${username}/blocked-dates`, {
         params: {
           year: currentDate.get('year'),
-          month: currentDate.get('month'),
+          month: currentDate.get('month') + 1,
         },
       })
 
