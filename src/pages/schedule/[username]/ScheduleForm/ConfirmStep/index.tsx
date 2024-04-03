@@ -1,12 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Text, TextArea, TextInput } from '@ignite-ui/react'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 import { CalendarBlank, Clock } from 'phosphor-react'
-import { ConfirmForm, FormActions, FormHeader, FormError } from './styles'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import dayjs from 'dayjs'
-import { api } from '@/lib/axios'
-import { useRouter } from 'next/router'
+import { api } from '../../../../../lib/axios'
+import { ConfirmForm, FormActions, FormError, FormHeader } from './styles'
 
 const confirmFormSchema = z.object({
   name: z.string().min(3, { message: 'O nome precisa no mínimo 3 caracteres' }),
@@ -47,6 +47,7 @@ export function ConfirmStep({
     })
 
     onCancelConfirmation()
+    // await router.push(`/schedule/${username}`)
   }
 
   const describedDate = dayjs(schedulingDate).format('DD[ de ]MMMM[ de ]YYYY')
@@ -68,8 +69,8 @@ export function ConfirmStep({
       <label>
         <Text size="sm">Nome completo</Text>
         <TextInput
-          placeholder="Seu nome"
           crossOrigin={undefined}
+          placeholder="Seu nome"
           {...register('name')}
         />
         {errors.name && <FormError size="sm">{errors.name.message}</FormError>}
@@ -78,9 +79,9 @@ export function ConfirmStep({
       <label>
         <Text size="sm">Endereço de e-mail</Text>
         <TextInput
+          crossOrigin={undefined}
           type="email"
           placeholder="johndoe@example.com"
-          crossOrigin={undefined}
           {...register('email')}
         />
         {errors.email && (
