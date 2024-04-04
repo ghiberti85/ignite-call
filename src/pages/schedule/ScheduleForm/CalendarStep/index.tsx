@@ -39,7 +39,7 @@ export function CalendarStep({ onSelectDateTime }: CalendarStepProps) {
     : null
 
   const { data: availability } = useQuery<Availability>(
-    ['availability', selectedDateWithoutTime],
+    ['availability', selectedDateWithoutTime, selectedDate],
     async () => {
       const response = await api.get(`/users/${username}/availability`, {
         params: {
